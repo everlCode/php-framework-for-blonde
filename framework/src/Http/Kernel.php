@@ -3,11 +3,7 @@
 namespace Everl\Framework\Http;
 
 use Everl\Framework\Http\Exceptions\HttpException;
-use Everl\Framework\Http\Exceptions\MethodNotAllowedException;
-use Everl\Framework\Http\Exceptions\RouteNotFoundException;
 use Everl\Framework\Routing\RouterInterface;
-use FastRoute\RouteCollector;
-use function FastRoute\simpleDispatcher;
 
 class Kernel
 {
