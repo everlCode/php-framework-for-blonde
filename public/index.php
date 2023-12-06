@@ -3,25 +3,19 @@
 define('BASE_PATH', dirname(__DIR__));
 require_once BASE_PATH.'/vendor/autoload.php';
 
-use Everl\Framework\Container\Container;
 use Everl\Framework\Http\Kernel;
 use Everl\Framework\Http\Request;
-use Everl\Framework\Routing\Router;
-use Everl\Framework\Tests\Somecode;
-use Everl\Framework\Tests\Foo;
+use League\Container\Container;
 
 $request = Request::createFromGlobals();
 
+/* @var Container $container */
+$container = require BASE_PATH . '/config/services.php';
 
-$kernel = new Kernel(new Router());
+$kernel = $container->get(Kernel::class);
 
 $response = $kernel->handle($request);
 
 $container = new Container();
 
-$container->add('foo', Foo::class);
-$container->add('somecode', Somecode::class);
-
-
-dd($container->get(\Everl\Framework\Tests\Boo::class));
 $response->send();

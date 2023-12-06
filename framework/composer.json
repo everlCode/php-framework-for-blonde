@@ -1,0 +1,23 @@
+{
+  "name": "everl/php-framework",
+  "description": "Framework for blonde",
+  "type": "project",
+  "authors": [
+    {
+      "name": "everl"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Everl\\Framework\\": "src",
+      "Everl\\Framework\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "nikic/fast-route": "^1.3",
+    "league/container": "^4.2.0",
+    "symfony/dotenv": "^6.3.0",
+    "twig/twig": "^3.7.0"
+  }
+}

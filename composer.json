@@ -12,8 +12,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "everl/php-framework": "dev-master",
-    "psr/container": "^2.0"
+    "everl/php-framework": "dev-master"
   },
   "require-dev": {
     "symfony/var-dumper": "*",

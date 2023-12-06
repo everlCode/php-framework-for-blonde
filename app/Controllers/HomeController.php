@@ -2,14 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Services\YouTubeService;
+use Everl\Framework\Controller\AbstractController;
 use Everl\Framework\Http\Response;
+use Twig\Environment;
 
-class HomeController
+class HomeController extends AbstractController
 {
+    public function __construct(
+        private YouTubeService $service,
+        private Environment $twig,
+    )
+    {
+    }
+
     public function index(): Response
     {
-        $content = '<h1> Hello motherfaca</h1>';
-
-        return new Response($content);
+        return $this->render('home.html.twig', ['link' => $this->service->getChannelUrl()]);
     }
 }

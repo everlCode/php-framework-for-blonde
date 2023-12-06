@@ -2,14 +2,27 @@
 
 namespace App\Controllers;
 
+use Everl\Framework\Controller\AbstractController;
 use Everl\Framework\Http\Response;
 
-class PostController
+class PostController extends AbstractController
 {
-    public function show(int $id)
+    public function show(int $id): Response
     {
-        $content = "<h1>Post - {$id} </h1>";
+        $content = $this->render(
+            'posts.html.twig',
+            ['postId' => $id]
+        );
 
-        return new Response($content);
+        return $content;
+    }
+
+    public function create(): Response
+    {
+        $content = $this->render(
+            'create_post.html.twig'
+        );
+
+        return $content;
     }
 }
