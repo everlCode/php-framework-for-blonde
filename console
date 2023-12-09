@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+
+<?php
+
+use Everl\Framework\Console\Kernel;
+use League\Container\Container;
+
+define('BASE_PATH', dirname(__FILE__));
+
+require_once BASE_PATH.'/vendor/autoload.php';
+
+/* @var Container $container */
+$container = require BASE_PATH . '/config/services.php';
+
+
+$kernel = $container->get(Kernel::class);
+
+$status = $kernel->handle();
+
